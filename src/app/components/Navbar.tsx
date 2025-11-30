@@ -160,7 +160,9 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  ref={(el) => (linkRefs.current[index] = el)}
+                  ref={(el) => {
+                    linkRefs.current[index] = el;
+                  }}
                   className={`relative rounded-full px-3 py-1.5 transition-all duration-200 ${
                     isActive(link.href)
                       ? "bg-emerald-50/10 text-white"
