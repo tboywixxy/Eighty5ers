@@ -1,6 +1,6 @@
 // app/gallery/page.tsx
 import type { Metadata } from "next";
-import GalleryClient from "./GalleryClient";
+import GalleryClient from "./galleryClient";
 
 export const metadata: Metadata = {
   title: "Gallery / Archives · Association of Eighty5ers FGCS",
