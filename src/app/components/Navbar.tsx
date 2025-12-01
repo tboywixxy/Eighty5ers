@@ -8,6 +8,8 @@ import React, {
   useRef,
   useState,
 } from "react";
+import Image from "next/image"; // ⬅️ add this
+
 
 type NavLink = {
   href: string;
@@ -130,25 +132,31 @@ export default function Navbar() {
           scrolled ? "shadow-lg shadow-black/40" : ""
         }`}
       >
-        {/* Main bar */}
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-2.5 sm:px-6">
-          {/* Brand block */}
-          <Link
-            href="/"
-            className="flex items-center gap-3 rounded-full px-1 py-1 transition hover:bg-emerald-50/5"
-          >
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--brand-green)] text-xs font-semibold text-white shadow-md shadow-emerald-600/60 ring-2 ring-emerald-300/60">
-              85
-            </div>
-            <div className="leading-tight">
-              <p className="text-sm font-semibold tracking-tight text-white">
-                Association of Eighty5ers FGCS
-              </p>
-              <p className="text-[11px] font-medium text-[var(--brand-gold)]">
-                “One Love” Alumni Community
-              </p>
-            </div>
-          </Link>
+<Link
+  href="/"
+  className="flex items-center gap-3 rounded-full px-1 py-1 transition hover:bg-emerald-50/5"
+>
+  <div className="h-14 w-14 overflow-hidden rounded-full bg-[var(--brand-green)] shadow-md shadow-emerald-600/60 ring-2 ring-emerald-300/60">
+    <Image
+      src="/logo.png"
+      alt="Eighty5ers FGCS logo"
+      width={56}   // match h-14/w-14 (3.5rem ≈ 56px)
+      height={56}
+      className="h-full w-full object-cover"
+      priority
+    />
+  </div>
+  <div className="leading-tight">
+    <p className="text-sm font-semibold tracking-tight text-white">
+      Association of Eighty5ers FGCS
+    </p>
+    <p className="text-[11px] font-medium text-[var(--brand-gold)]">
+      “One Love” Alumni Community
+    </p>
+  </div>
+</Link>
+
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-4 md:flex">
@@ -269,9 +277,16 @@ export default function Navbar() {
           {/* Drawer header */}
           <div className="flex items-center justify-between border-b border-emerald-900/70 px-4 py-3">
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--brand-green)] text-[11px] font-semibold text-white">
-                85
-              </div>
+              <div className="h-8 w-8 overflow-hidden rounded-full bg-[var(--brand-green)]">
+  <Image
+    src="/logo.png" // same logo file
+    alt="Eighty5ers FGCS logo"
+    width={32}
+    height={32}
+    className="h-full w-full object-cover"
+  />
+</div>
+
               <div className="leading-tight">
                 <p className="text-[11px] font-semibold text-emerald-50">
                   Eighty5ers FGCS
